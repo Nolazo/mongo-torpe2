@@ -1,0 +1,13 @@
+use('platzo')
+
+db.products.updateMany(
+//query
+	{price: 1000},
+	//change => operators
+	{
+		$inc:{
+			//esto sumara su valor actual mas el valor que ponga en price
+			price: 500,
+		}
+	},   
+)

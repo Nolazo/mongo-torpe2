@@ -1,0 +1,13 @@
+use('platzo')
+
+db.products.updateOne(
+//query
+	{_id: ObjectId("6423abbd55f96076b67114a8")},
+	//change => operators
+	{
+		$inc:{
+			//esto sumara su valor actual mas el valor que ponga en price
+			price: 500,
+		}
+	},   
+)

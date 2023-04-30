@@ -1,0 +1,10 @@
+use('platzi_store')
+
+//para borrar por id
+db.products.deleteOne({_id: 1})
+
+//para borrar varios doc, basandose en el parametro ingresado
+db.products.deleteMany({ price: 100 })
+
+//borrar todas los documentos de esa coleccion
+db.products.drop()

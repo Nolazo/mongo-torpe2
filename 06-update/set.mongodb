@@ -1,0 +1,15 @@
+use('platzo')
+
+db.products.updateOne(
+//query
+	{_id: ObjectId("6423abbd55f96076b67114a7")},
+	//change => operators
+	{
+		$set:{
+			name: "Producto 1 modificado",
+			price: 1500,
+			//este atributo se le agrego en este update
+			tags: ['A', 'B']
+		}
+	},   
+)
