@@ -1,0 +1,11 @@
+use("platzi_store")
+
+//using $eq forma implicita
+db.inventory.find({ qty:20 })
+
+//using $eq forma explicita
+db.inventory.find({ qty:{$eq: 20} })
+
+//busqueda a subdocumentos
+db.inventory.find({ "item.code": "123" })
+db.inventory.find({ "item.code": {$eq: "123"}})
