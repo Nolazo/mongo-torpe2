@@ -1,0 +1,14 @@
+use('platzi_store')
+//esto devuelve los docs que tengan Single line description
+db.inventory.find({'item.description': 'Single line description'})
+//esto devuelve los docs que cumplan con el regex, en este caso los que tengan la palabra line
+db.inventory.find({'item.description': {$regex: /line/}})
+//esto devuelve los docs que cumplan con el regex, en este caso los que
+// tengan la palabra line y la i es para que traiga el valor si es en mayus o en minus
+db.inventory.find({'item.description': {$regex: /LINE/i}})
+// trae a las que terminene en line
+db.inventory.find({'item.description': {$regex: /line$/i}})
+//trae a las que comienzen con single
+db.inventory.find({'item.description': {$regex: /^single/i}})
+//trae a las que comienzen s independiente si es mayus o minus y que sea en multilneas
+db.inventory.find({'item.description': {$regex: /^s/im}})
