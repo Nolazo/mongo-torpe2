@@ -9,3 +9,7 @@ db.inventory.find({ qty:{$eq: 20} })
 //busqueda a subdocumentos
 db.inventory.find({ "item.code": "123" })
 db.inventory.find({ "item.code": {$eq: "123"}})
+
+
+//using $ne: not equal
+db.inventory.find({ qty:{$ne: 20} })

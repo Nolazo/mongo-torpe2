@@ -1,11 +1,17 @@
 use("platzi_store")
 
-//using $eq forma implicita
-db.inventory.find({ qty:20 })
+//using $ne: not equal
+db.inventory.updateMany(
+	//query operators
+	{ 
+		qty:{$ne: 20} 
+	},
+	//update
+	{
+		$inc: {
+			qty:10
+		}
+	}
+)
 
-//using $eq forma explicita
-db.inventory.find({ qty:{$eq: 20} })
-
-//busqueda a subdocumentos
-db.inventory.find({ "item.code": "123" })
-db.inventory.find({ "item.code": {$eq: "123"}})
+//los doc que no tengan qty:20 se les hace el update de qty:10

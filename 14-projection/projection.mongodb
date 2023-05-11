@@ -1,0 +1,9 @@
+use('sample_training')
+
+db.trips.find(
+	// query
+	{ tripduration: {$gte: 500}},
+	//projection, hace que solo traiga el campo solicitado
+	{tripduration: 1, usertype: 1}
+	//se activa con un 1 y se desactiva en  0
+)

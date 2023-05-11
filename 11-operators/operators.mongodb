@@ -1,10 +1,10 @@
 use("platzi_store")
 
-//Using $gt (>) & $gte(>=)
+//Using $gt (>) & $gte(>=) greater than
 db.inventory.find({qty: {$gt: 20}})
 db.inventory.find({qty: {$gte: 20}})
 
-//Using $lt (<) & $lte(<=)
+//Using $lt (<) & $lte(<=) less than
 db.inventory.find({qty: {$lt: 20}})
 db.inventory.find({qty: {$lte: 20}})
 
