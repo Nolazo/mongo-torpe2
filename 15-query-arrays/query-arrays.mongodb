@@ -1,0 +1,33 @@
+use ("platzi_store")
+
+// //$in, values & arrays es para hacer match
+// db.inventory.find({ qty: {$in: [20, 25]}})
+// db.inventory.find({ qty: {$in: ["book", "electronics"]}})
+
+// //$nin, values & arrays es lo contrario de in
+// db.inventory.find({ qty: {$nin: [20, 25]} })
+// db.inventory.find({ qty: {$nin: ["book", "electronics"]} })
+
+// //el array debe venir en el mismo orden para que funcione
+// db.inventory.find({ tags: ["book", "school"] })
+
+// //arrays $all -> aca devuelve si el array contiene los 2 elementos
+// db.inventory.find({tags: {$all: ["book", "shcool"]}})
+
+// //$size para que devuelva array de tamaño 2
+// db.inventory.find({ tags: {$size:2} })
+
+// // $elemMatchara seleccionar
+// //  documentos que tengan un campo con un
+// // array que contenga al menos un elemento que cumpla con
+// // ciertos criterios de consulta.
+// db.survey.find({ results: {$elemMatch: {product: "xyz"}} })
+
+db.survey.find({
+	results:{
+		$elemMatch:{
+			product: "xyz",
+			score: {$gte: 7}
+		}
+	}
+})
