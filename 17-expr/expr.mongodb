@@ -1,0 +1,9 @@
+use("platzi_store")
+
+//el expr en este caso lo usamos para comparar 2 atributos de los documentos
+//en este caso buscamos los spent mayores que el budget
+db.monthlyBudget.find({
+	$expr: {
+		$gte: ["$spent", "$budget"]
+	}
+})
