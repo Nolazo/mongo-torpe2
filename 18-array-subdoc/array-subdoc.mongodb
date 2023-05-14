@@ -1,0 +1,12 @@
+use("sample_training")
+
+//hace consultas a los sub docs
+db.companies.find({
+	relationships: {
+		$elemMatch: {
+			"person.first_name": "Mark"
+		}
+	}
+},{
+	name: 1
+})
