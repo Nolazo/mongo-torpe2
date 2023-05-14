@@ -1,0 +1,19 @@
+use("sample_airbnb")
+
+// //traera todas loas que tengan wifi y mostrara el precio y el array de amenities
+// db.listingsAndReviews.find({
+// 	amenities: "Wifi"
+// },{
+// 	price: 1,
+// 	amenities: 1
+// })
+
+// trae la cantidad de lugares que tengan wifi agrupado por ciudad
+db.listingsAndReviews.aggregate([
+	{$match: {
+		amenities: "Wifi"
+	}}, //find
+	{$project: {address: 1}}, //project
+	{$group: {_id: "$address.country", count:{$sum:1}}}
+])
+
