@@ -1,0 +1,7 @@
+use("platzi_store")
+
+//ejemplo par apaginar
+db.categories
+	.find()
+	.skip(1)
+	.limit(3)
